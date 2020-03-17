@@ -78,6 +78,8 @@ func createContainerGroup() (string) {
 	//sdk-core默认的重试次数为3，在没有加幂等的条件下，资源创建的接口底层不需要自动重试
 	client.GetConfig().MaxRetryTime = 0
 
+	createContainerRequest.Method = "post"
+
 	createContainerGroupResponse, err := client.CreateContainerGroup(createContainerRequest)
 	if err != nil {
 		panic(err)
